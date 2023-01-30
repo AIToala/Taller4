@@ -92,7 +92,8 @@ router.post('/photos/delete', async function(req, res, next) {
 });
 
 router.get('/photos/edit', async function(req, res, next) {
-  res.render('fotos_formulario_edit', { title: 'Express', id: req.body.id});
+  const id = parseInt(req.query.id)
+  res.render('fotos_formulario_edit', { title: 'Express', id: id});
 }); 
 
 router.post('/photos/update', upload.single('route'), async function(req, res, next) {

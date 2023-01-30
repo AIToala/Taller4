@@ -28,7 +28,10 @@
                         <td><%= foto.descripcion %></td>  
                         <td><%= foto.url %></td>   
                         <td style="display: flex; flex-direction:column">
-                            <a href="/photos/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xf044;</i></a>  
+                            <form action="/photos/edit" method="get">
+                                <input type="hidden" name="id" value="<%= foto.id %>">
+                                <button type="submit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xf044;</i></button>
+                            </form>
                             <form action="/photos/delete" method="post" style="border:none!important">
                                 <input type="hidden" name="_method" value="delete">
                                 <input type="hidden" name="id" value="<%= foto.id %>">
