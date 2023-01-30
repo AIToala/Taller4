@@ -27,9 +27,14 @@
                         <td><%= idx %></td>  
                         <td><%= foto.descripcion %></td>  
                         <td><%= foto.url %></td>   
-                        <td>  
-                            <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>  
-                            <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>  
+                        <td style="display: flex; flex-direction:column">
+                            <a href="/photos/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xf044;</i></a>  
+                            <form action="/photos/delete" method="post" style="border:none!important">
+                                <input type="hidden" name="_method" value="delete">
+                                <input type="hidden" name="id" value="<%= foto.id %>">
+                                <button type="submit" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></button>
+                            </form>
+                            
                         </td>  
                       </tr>  
                     <% }); %>  
